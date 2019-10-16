@@ -24,3 +24,12 @@ for i in Sarah.items():
 # you can use tuple unpacking to get back just the values
 for key,value in Sarah.items():
     print(value)
+
+#go through the list and remove the vowels
+names = ['Sarah', 'Danielle', 'Scott', 'Holly', 'Rebecca', 'Ronald', 'Sharolyn', 'Alexander', 'Aurora']
+for i in names:
+    new_name = ''
+    for l in i:
+        if l.lower() != 'a' and l.lower() != 'e' and l.lower() !='i' and l.lower() != 'o' and l.lower() != 'u':
+            new_name = new_name + l
+    print(new_name)
