@@ -13,3 +13,14 @@ my_sum = 0
 for i in iterable:
     my_sum = my_sum + i
     print(f'My new total is: {my_sum}')
+
+#iterating through dictionaries
+Sarah = {'Profession': 'Developer', 'Language': ['Python', 'Javascript', 'HTML', 'CSS', 'SQL', 'MongoDB'], 'Company': 'Verizon'}
+for i in Sarah:
+    print(i)
+#notice by default it prints the keys. to get the key/value pair then...
+for i in Sarah.items():
+    print(i)
+# you can use tuple unpacking to get back just the values
+for key,value in Sarah.items():
+    print(value)
