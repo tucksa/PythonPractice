@@ -33,3 +33,13 @@ for i in names:
         if l.lower() != 'a' and l.lower() != 'e' and l.lower() !='i' and l.lower() != 'o' and l.lower() != 'u':
             new_name = new_name + l
     print(new_name)
+
+
+#Practicing while loops. create a list of 1-100
+my_list = []
+x= 1
+while x < 101:
+    my_list.append(x)
+    x= x + 1
+else:
+    print(my_list)  
