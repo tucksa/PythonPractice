@@ -40,6 +40,29 @@ my_list = []
 x= 1
 while x < 101:
     my_list.append(x)
-    x= x + 1
+    x += 1
 else:
     print(my_list)  
+
+# break continue pass
+
+#Pass = do nothing at all. python will not let you have a for loop with a comment in it so you have to include pass if you want to come back
+x = [1,2,3]
+for i in x:
+    #this comment alone will break the code so include pass
+    pass
+print('Now its a placeholder and I can continue with my code')
+
+# Continue goes to the top of the closest enclosing loop
+name = 'Sarah'
+for letter in name:
+    #the vowels can be removed with continue
+    if letter == 'a':
+        continue 
+    print(letter)
+
+# Break = breaks out of the current closest enclosing loop
+for i in my_list:
+    if i == 11:
+        break
+    print(i)
