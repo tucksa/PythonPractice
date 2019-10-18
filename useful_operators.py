@@ -44,3 +44,27 @@ print('model' in car)
 
 #remember .values() if you want to check if it exists in the values
 print('silver' in car.values())
+
+#min and max 
+my_list = [12,2,4,8,25,80,6,16]
+print(min(my_list))
+print(max(my_list))
+
+#useful library - random
+from random import shuffle
+shuffle(my_list)
+print(my_list)
+#shuffle doesn't return anything, but instead works in place on the list
+
+#use randint to return a random integer in (min, max) range
+from random import randint
+print(randint(1,100))
+
+#input can be received from the user
+result= input('What is your name? ')
+print(result)
+
+#note that this always returns a string.... so you may have to adjust
+
+fav_num= int(input('What is your favorite number? '))
+print(fav_num)
