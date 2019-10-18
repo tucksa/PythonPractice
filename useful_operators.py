@@ -25,3 +25,22 @@ for item in enumerate(word):
 #this returns a tuple so you can unpack it
 for index,letter in enumerate(word):
     print(f'Index: {index}\nLetter: {letter}')
+
+# the zip function will match together lists. note- it will go the length of the shortest list
+list1 = [1,2,3,4,5,6]
+list2 = ['a','b','c']
+list3 = ['x', 'y', 'z']
+
+for item in zip(list1, list2, list3):
+    print(item)
+
+#use in to get boolean check
+print('a' in 'Sarah')
+
+print(1 in list3)
+
+car = {'make': 'Toyota', 'model': 'Prius', 'color': 'silver'}
+print('model' in car)
+
+#remember .values() if you want to check if it exists in the values
+print('silver' in car.values())
