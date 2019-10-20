@@ -68,3 +68,21 @@ print(result)
 
 fav_num= int(input('What is your favorite number? '))
 print(fav_num)
+
+#list comprehension. if you ever run through a for loop to append into a list
+mysting = 'Hello World'
+created_list= []
+for letter in mysting:
+    created_list.append(letter)
+
+print(created_list)
+
+#but instead you can just uste one line
+
+created_list = [num for num in range(0,101)]
+print(created_list)
+
+#can include an if statement and/or alter what to do with the element 
+
+created_list = [num**2 for num in range(1,101) if num%2==0]
+print(created_list)
