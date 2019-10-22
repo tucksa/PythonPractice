@@ -57,3 +57,36 @@ def lesser_of_two_evens(a,b):
 
 lesser_of_two_evens(2,3)
 
+#Animal Crackers => write a function that takes a two word string and returns True if both words begin with the same letter
+
+def animal_crackers(st):
+    word1 = st.split(' ')[0]
+    word2 = st.split(' ')[1]
+    print(word1[0].lower() == word2[0].lower())
+
+animal_crackers('Laughing llama')
+
+#The Other Side of Seven => given a value, return a value that is twice as far away on the other side of 7
+def other_side_of_seven(x):
+    difference = 7-x
+    if difference >= 0:        
+        print( 7 + (difference*2))
+    else:
+        print(7- (abs(difference)*2))
+
+other_side_of_seven(12)
+
+#Old Macdonald => write a function that capitolizes the first and fourth letters of a name
+def old_macdonald(name):
+    i= 0
+    cap_name = ''
+    for letter in name:
+        if i == 0 or i == 3:
+            cap_name += letter.upper()
+            i += 1
+        else:
+            cap_name += letter
+            i += 1
+    print(cap_name)
+
+old_macdonald('macdonald')
