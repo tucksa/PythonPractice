@@ -37,5 +37,23 @@ def myformat(word):
             newWord += letter.lower()
             i += 1
     print(newWord)
-    
+
 myformat('note')
+
+#Lesser of Two Evens => return the lesser of two given even numbers if both are even, but return the greater if one or both are odd
+def lesser_of_two_evens(a,b):
+    if a%2 == 0 and b%2 == 0:
+        print('they are even! So here is the lesser:')
+        if a > b:
+            print(b)
+        else:
+            print(a)
+    else:
+        print('one of them is not even... so here is the greater:')
+        if a > b:
+            print(a)
+        else:
+            print(b)
+
+lesser_of_two_evens(2,3)
+
