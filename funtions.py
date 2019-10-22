@@ -90,3 +90,23 @@ def old_macdonald(name):
     print(cap_name)
 
 old_macdonald('macdonald')
+
+#Master Yoda => given a sentence, return a sentence with the words reversed
+def master_yoda(st):
+    sentence = st.split(' ')
+   # length = len(sentence)
+    #print(length)
+    i = -1
+    rev_sentence = ''
+    for _ in sentence:
+        rev_sentence += sentence[i] + " "
+        i = i-1
+    print(rev_sentence)
+
+master_yoda('We are ready')
+
+#Almost There => given an integer n, return True if n is within 10 or either 100 or 200
+def almost_there(n):
+    print(111>n>89 or 211>n>189)
+
+almost_there(209)
