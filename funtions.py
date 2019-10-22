@@ -13,3 +13,29 @@ def pig_latin(st = 'Pig Latin'):
 
 result = pig_latin('Hello my name is')
 print(result)
+
+#use *args to take in an arbitrary amount of arguments and will return tuples
+def myfunc(*args):
+    print(sum(args))
+
+myfunc(3,6,22,10)
+
+#similarly, use **kwargs to get arbitraty amount of key/value arguments returned as a dictionary
+def secondfunc(**kwargs):
+    print(kwargs)
+
+secondfunc(fruit = 'bananas', veggie = 'brocoli')
+
+def myformat(word):
+    i = 0
+    newWord = ''
+    for letter in word:
+        if i%2 == 0:
+            newWord += letter.upper()
+            i += 1
+        else:
+            newWord += letter.lower()
+            i += 1
+    print(newWord)
+    
+myformat('note')
