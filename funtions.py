@@ -147,3 +147,54 @@ def paper_doll(st):
     print(new_string)
 
 paper_doll('hello sir')
+
+#Blackjack => Given three integers between 1 and 11, if their sum is less than or equal to 21, return their sum.
+#If their sum exceeds 12 and there's an eleven, reduce the total sum by 10
+#Finally, if the sum (even after adjustment) exceeds 21, return 'BUST'
+
+def blackjack(a,b,c):
+    total = a + b + c
+    if total <= 21:
+        print(total)
+    elif total > 21 and 11 in [a,b,c]:
+        if(total - 10) < 21:
+            print(total - 10)
+        else:
+            print('BUST')
+    else:
+        print('BUST')
+
+blackjack(11,11,11)
+blackjack(9,9,11)
+blackjack(4,5,9)
+
+#Summer of '69 => return the sum of the numbers in the array, except ignore sections of numbers starting with a 6 and extending to the next 9 (every 6 will be followed by at least one 9). Return 0 for no numbers
+
+def summer_69(arr):
+    total = 0
+    skip = False
+    for num in arr:
+        if num != 6 and skip == False:
+            total += num
+        elif num == 6:
+            skip = True
+        elif num == 9:
+            skip = False
+    print(total)
+
+summer_69([1,3,5])
+summer_69([4,5,6,7,8,9])
+summer_69([2,1,6,9,11])
+
+# Spy Game => Write a function that takes in a list of integers and returns True if it contains 007 in order
+
+def spy_game(arr):
+    spy_num = ''
+    for i in arr:
+        if i in [0,7]:
+            spy_num += str(i)
+    print('007' in spy_num)
+
+spy_game([1,2,4,0,0,7,5])
+spy_game([1,0,2,4,0,5,7])
+spy_game([1,7,2,0,4,5,0])
