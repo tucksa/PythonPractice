@@ -110,3 +110,40 @@ def almost_there(n):
     print(111>n>89 or 211>n>189)
 
 almost_there(209)
+
+#Laughter => write a function that counts the number of times a given pattern appears in a string, inlcuding overlap
+def laughter(pattern,text):
+    #print(text.count(pattern[0]))
+    for letter in text:
+        for i in pattern:
+            if i == letter:
+                print(letter)
+laughter('hah', 'hahahah')
+
+#Find 33 => Given a list of ints, return True if the array contains a 3 next to a 3 somewhere
+
+def has_33(num_list):
+    last_num = 0
+    existing = False
+    for nums in num_list:
+        if 3 == nums and 3 == last_num:
+            last_num = nums
+            return True
+        else:
+            last_num = nums
+    return existing
+
+# has_33([1,3,3,5]) returns True
+
+# Paper Doll => Given a string, return a strin where for every character in the original there are three characters
+
+def paper_doll(st):
+    new_string = ''
+    for letter in st:
+        if letter == ' ':
+            new_string += ' '
+        else:
+            new_string += letter + letter + letter
+    print(new_string)
+
+paper_doll('hello sir')
