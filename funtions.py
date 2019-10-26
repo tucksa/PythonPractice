@@ -198,3 +198,25 @@ def spy_game(arr):
 spy_game([1,2,4,0,0,7,5])
 spy_game([1,0,2,4,0,5,7])
 spy_game([1,7,2,0,4,5,0])
+
+#Count Primes => Write a function that returns the number of prime numbers that exist up to and including a given number
+# treat 0 and 1 as not prime
+
+def count_primes(num):
+    if num < 2:
+        return 0
+    # 2 or greater
+    primes = [2]
+    x = 3
+    while x <= num:
+        for y in range(3,x,2):
+            if x%y == 0:
+                x += 2
+                break
+        else:
+            primes.append(x)
+            x += 2
+    
+    print(len(primes))
+
+count_primes(100)
