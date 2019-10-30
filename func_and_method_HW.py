@@ -54,5 +54,28 @@ def mult(num):
     for i in num:
         total *= i 
     return total
-    
+
 print(mult([2,2,3]))
+
+# Write a Python function that checks whether a passed in string is palindrome or not.
+# Note: A palindrome is word, phrase, or sequence that reads the same backward as forward, e.g., madam or nurses run.
+def palindrome(st):
+    backwards = st[::-1]
+    return st.lower() == backwards.lower()
+
+print(palindrome('madam'))
+
+#Write a Python function to check whether a string is pangram or not.
+#Note : Pangrams are words or sentences containing every letter of the alphabet at least once.
+
+import string 
+
+def pangram(st, alphabet=string.ascii_lowercase):
+    check = list(alphabet)
+    for letter in st:
+        if letter in check:
+            i = check.index(letter)
+            check.pop(i)
+    return len(check) == 0
+
+print(pangram('The quick brown fox jumps over the lazy dog'))
