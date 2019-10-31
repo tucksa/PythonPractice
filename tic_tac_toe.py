@@ -16,6 +16,22 @@ test_board = ['#','X','O','X','O','X','O','X','O','X']
 display_board(test_board)
 
 # Step 2: Write a function that can take in a player input and assign their marker as 'X' or 'O'. Think about using while loops to continually ask until you get a correct answer.
+def player_input():
+    marker = ''
+    options = ['X', 'O']
+    players = { 1: '', 2: ''}
+    while marker not in options:
+        result = input('Player 1, would you like to be X or O: ')
+        if result.upper() in options:
+            marker = result.upper()
+    players[1] = marker
+    if players[1] == 'X':
+        players[2] = 'O'
+    else:
+        players[2] = 'X'
+    return players
+
+player_input()
 
 # Step 3: Write a function that takes in the board list object, a marker ('X' or 'O'), and a desired position (number 1-9) and assigns it to the board.
 
