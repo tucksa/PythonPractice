@@ -68,11 +68,20 @@ def win_check(board, mark):
                 win = True
     return win
 
-win_check(test_board, 'X')
-display_board(test_board)
+#win_check(test_board, 'X')
+#display_board(test_board)
 
 # Step 5: Write a function that uses the random module to randomly decide which player goes first. You may want to lookup random.randint() Return a string of which player went first.
+import random
 
+def choose_first():
+    rand= random.randint(0,1)
+    if rand == 0:
+        print('Player 1 will go first')
+    else:
+        print('Player 2 will go first')
+
+choose_first()
 # Step 6: Write a function that returns a boolean indicating whether a space on the board is freely available.
 
 # Step 7: Write a function that checks if the board is full and returns a boolean value. True if full, False otherwise.
