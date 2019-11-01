@@ -13,7 +13,7 @@ def display_board(board):
     print(' '+ board[1] + ' | ' + board[2] + ' | ' + board[3])
 
 test_board = ['#','X','O','X','O','X','O','X','O','X']
-display_board(test_board)
+#display_board(test_board)
 
 # Step 2: Write a function that can take in a player input and assign their marker as 'X' or 'O'. Think about using while loops to continually ask until you get a correct answer.
 def player_input():
@@ -31,11 +31,45 @@ def player_input():
         players[2] = 'X'
     return players
 
-player_input()
+#player_input()
 
 # Step 3: Write a function that takes in the board list object, a marker ('X' or 'O'), and a desired position (number 1-9) and assigns it to the board.
+def place_marker(board, marker,position):
+    board[position] = marker
+
+#place_marker(test_board, '$', 7)
+#display_board(test_board)
 
 # Step 4: Write a function that takes in a board and a mark (X or O) and then checks to see if that mark has won.
+def win_check(board, mark):
+    winning = [
+        [1,2,3],
+        [4,5,6],
+        [7,8,9],
+        [7,4,1],
+        [8,5,2],
+        [9,6,3],
+        [9,5,1],
+        [7,5,3]
+    ]
+    existing_postions = []
+    count = 0
+    print(board)
+    for i in board:
+        if i == mark:
+           existing_postions.append(count)
+           count +=1
+        else:
+            count +=1
+    win = False
+    while win == False:
+        for i in winning: 
+            if i[0] in existing_postions and i[1] in existing_postions and i[2] in existing_postions:
+                win = True
+    return win
+
+win_check(test_board, 'X')
+display_board(test_board)
 
 # Step 5: Write a function that uses the random module to randomly decide which player goes first. You may want to lookup random.randint() Return a string of which player went first.
 
