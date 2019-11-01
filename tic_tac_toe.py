@@ -110,4 +110,17 @@ def player_choice(board):
 
 # Step 9: Write a function that asks the player if they want to play again and returns a boolean True if they do want to play again.
 
+def replay():
+    
+    accepted = False
+    while accepted == False:
+        play_again = input('Do you want to play again? Y/N ')
+        if play_again.upper() == 'Y':
+            print(True)
+            accepted = True
+        elif play_again.upper() == 'N':
+            print(False)
+            accepted = True
+replay()
+
 # Step 10: Here comes the hard part! Use while loops and the functions you've made to run the game!
