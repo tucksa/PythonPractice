@@ -12,7 +12,7 @@ def display_board(board):
     print('~~~~~~~~~~~')
     print(' '+ board[1] + ' | ' + board[2] + ' | ' + board[3])
 
-test_board = ['#','X','O','X','O','X','O','X','O','X']
+test_board = ['#','X',' ','X','O','X','O','X','O','X']
 #display_board(test_board)
 
 # Step 2: Write a function that can take in a player input and assign their marker as 'X' or 'O'. Think about using while loops to continually ask until you get a correct answer.
@@ -81,12 +81,32 @@ def choose_first():
     else:
         print('Player 2 will go first')
 
-choose_first()
+#choose_first()
+
 # Step 6: Write a function that returns a boolean indicating whether a space on the board is freely available.
+
+def space_check(board, position):
+    return board[position] == ' '
+
+#space_check(test_board, 3)
 
 # Step 7: Write a function that checks if the board is full and returns a boolean value. True if full, False otherwise.
 
+def full_board_check(board):
+    return ' ' not in board
+
+# full_board_check(test_board)
+
 # Step 8: Write a function that asks for a player's next position (as a number 1-9) and then uses the function from step 6 to check if it's a free position. If it is, then return the position for later use.
+
+def player_choice(board):
+    position = int(input('What is your next move: '))
+    if space_check(board, position):
+        print(position)
+    else:
+        print('Sorry, that space has been taken')
+
+#player_choice(test_board)
 
 # Step 9: Write a function that asks the player if they want to play again and returns a boolean True if they do want to play again.
 
