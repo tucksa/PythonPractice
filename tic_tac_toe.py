@@ -5,12 +5,13 @@
 
 # Step 1: Write a function that can print out a board. Set up your board as a list, where each index 1-9 corresponds with a number on a number pad, so you get a 3 by 3 board representation.
 def display_board(board):
-    print('\n'*10)
+    print('\n'*5)
     print(' '+ board[7] + ' | ' + board[8] + ' | ' + board[9])
     print('~~~~~~~~~~~')
     print(' '+ board[4] + ' | ' + board[5] + ' | ' + board[6])
     print('~~~~~~~~~~~')
     print(' '+ board[1] + ' | ' + board[2] + ' | ' + board[3])
+    print('\n'*5)
 
 test_board = ['#','X',' ','X','O','X','O','X','O','X']
 #display_board(test_board)
@@ -27,8 +28,10 @@ def player_input():
     players[1] = marker
     if players[1] == 'X':
         players[2] = 'O'
+        print('Ok, Player 1 is X and Player 2 is O')
     else:
         players[2] = 'X'
+        print('Ok, Player 1 is O and Player 2 is X')
     return players
 
 #player_input()
@@ -36,6 +39,7 @@ def player_input():
 # Step 3: Write a function that takes in the board list object, a marker ('X' or 'O'), and a desired position (number 1-9) and assigns it to the board.
 def place_marker(board, marker,position):
     board[position] = marker
+    return board
 
 #place_marker(test_board, '$', 7)
 #display_board(test_board)
@@ -54,7 +58,6 @@ def win_check(board, mark):
     ]
     existing_postions = []
     count = 0
-    print(board)
     for i in board:
         if i == mark:
            existing_postions.append(count)
@@ -62,10 +65,10 @@ def win_check(board, mark):
         else:
             count +=1
     win = False
-    while win == False:
-        for i in winning: 
-            if i[0] in existing_postions and i[1] in existing_postions and i[2] in existing_postions:
-                win = True
+    #while win == False:
+    for i in winning: 
+        if i[0] in existing_postions and i[1] in existing_postions and i[2] in existing_postions:
+            win = True
     return win
 
 #win_check(test_board, 'X')
@@ -78,8 +81,10 @@ def choose_first():
     rand= random.randint(0,1)
     if rand == 0:
         print('Player 1 will go first')
+        return 1
     else:
         print('Player 2 will go first')
+        return 2
 
 #choose_first()
 
@@ -101,10 +106,14 @@ def full_board_check(board):
 
 def player_choice(board):
     position = int(input('What is your next move: '))
-    if space_check(board, position):
-        print(position)
-    else:
-        print('Sorry, that space has been taken')
+    gone = False
+    while not gone:
+        if space_check(board, position):
+            gone = True
+            return position
+        else:
+            print('Sorry, that space has been taken')
+
 
 #player_choice(test_board)
 
@@ -116,11 +125,38 @@ def replay():
     while accepted == False:
         play_again = input('Do you want to play again? Y/N ')
         if play_again.upper() == 'Y':
-            print(True)
             accepted = True
+            return True
         elif play_again.upper() == 'N':
-            print(False)
             accepted = True
-replay()
+            return False
+#replay()
 
 # Step 10: Here comes the hard part! Use while loops and the functions you've made to run the game!
+def play():
+    print('Welcome to tic tac toe!')
+    win = False
+    board_full = False
+    board = ['#','X',' ','X',' ',' ',' ',' ','O','O']
+    players = player_input()
+    turn = choose_first()
+    while not win and not board_full:
+        display_board(board)
+        position = player_choice(board)
+        print(position)
+        marker = players[turn]
+        print(marker)
+        board = place_marker(board,marker,position)
+        print(board)
+        board_full = full_board_check(board)
+        print(board_full)
+        win = win_check(board, marker)
+        print(win)
+        if turn == 1:
+            turn = 2
+        else:
+            turn = 1
+        print(turn)
+       
+        
+play()
