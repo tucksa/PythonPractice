@@ -5,13 +5,13 @@
 
 # Step 1: Write a function that can print out a board. Set up your board as a list, where each index 1-9 corresponds with a number on a number pad, so you get a 3 by 3 board representation.
 def display_board(board):
-    print('\n'*5)
+    print('\n'*2)
     print(' '+ board[7] + ' | ' + board[8] + ' | ' + board[9])
     print('~~~~~~~~~~~')
     print(' '+ board[4] + ' | ' + board[5] + ' | ' + board[6])
     print('~~~~~~~~~~~')
     print(' '+ board[1] + ' | ' + board[2] + ' | ' + board[3])
-    print('\n'*5)
+    print('\n'*2)
 
 test_board = ['#','X',' ','X','O','X','O','X','O','X']
 #display_board(test_board)
@@ -65,11 +65,10 @@ def win_check(board, mark):
         else:
             count +=1
     win = False
-    #while win == False:
     for i in winning: 
         if i[0] in existing_postions and i[1] in existing_postions and i[2] in existing_postions:
             win = True
-    return win
+    return win 
 
 #win_check(test_board, 'X')
 #display_board(test_board)
@@ -137,26 +136,36 @@ def play():
     print('Welcome to tic tac toe!')
     win = False
     board_full = False
-    board = ['#','X',' ','X',' ',' ',' ',' ','O','O']
+    board = ['#',' ',' ',' ',' ',' ',' ',' ',' ',' ']
     players = player_input()
     turn = choose_first()
     while not win and not board_full:
         display_board(board)
+        print(f'Player {turn}')
         position = player_choice(board)
-        print(position)
         marker = players[turn]
-        print(marker)
         board = place_marker(board,marker,position)
-        print(board)
         board_full = full_board_check(board)
-        print(board_full)
         win = win_check(board, marker)
-        print(win)
         if turn == 1:
             turn = 2
         else:
             turn = 1
-        print(turn)
-       
+    if win == True:
+        if turn == 1:
+            winner = 2
+        else:
+            winner = 1
+            print(f'Congratulations Player {winner}- You Won!!!')
+            if replay():
+               play()
+            else:
+                print('Thanks for playing!')
+    else:
+        print('Looks like a tie...')
+        if replay():
+            play()
+        else:
+           print('Thanks for playing!')    
         
 play()
