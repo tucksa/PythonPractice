@@ -48,7 +48,7 @@ class Account:
         print(f'Deposit of {amount} successful. Your new total is {self.balance}')
     def withdraw(self, amount):
         if amount <= self.balance:
-            self.balance = self.balance - amount
+            self.balance -= amount
             print(f'Withdrawal of {amount} successful. Your new total is {self.balance}')
         else:
             return f'You have exceeded your total balance of {self.balance}'
