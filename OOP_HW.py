@@ -34,3 +34,29 @@ c = Cylinder(2,3)
 
 print(c.volume())
 print(c.surface_area())
+
+#OOP Challenge: create an object representing a bank account with two attributes(owner and balance) and two methods (deposit and withdraw). 
+#withdrawals cannot exceed the balance
+
+class Account:
+    def __init__(self,owner,balance):
+        self.owner = owner
+        self.balance = balance
+
+    def deposit(self, amount):
+        self.balance += amount
+        print(f'Deposit of {amount} successful. Your new total is {self.balance}')
+    def withdraw(self, amount):
+        if amount <= self.balance:
+            self.balance = self.balance - amount
+            print(f'Withdrawal of {amount} successful. Your new total is {self.balance}')
+        else:
+            return f'You have exceeded your total balance of {self.balance}'
+    def __str__(self):
+        return f'Owner: {self.owner}\nBalance: {self.balance}'
+bank1 = Account('Sarah', 500)
+
+print(bank1)
+
+bank1.deposit(50)
+bank1.withdraw(100)
