@@ -63,3 +63,37 @@ test_patterns = ['ab*', #a followed by zero or more bs
                  'ab{2,3}' #a followed by at least 2 bs and at most 3 bs
                 ]
 multi_re_find(test_patterns, test_phrase)
+
+#use brackets to search for character sets
+test_patterns2 = ['[ab]', #either a or b
+                  'a[ab]+' #a followed by one or more a or b                
+                ]
+multi_re_find(test_patterns2, test_phrase)
+
+#Exclusion using ^ in brackets
+sentence = 'This is a string! But it has punctuation. How can we remove it?'
+#use the + to check that the match appears at least once
+print(re.findall('[^!.,? ]+', sentence))
+
+#Character ranges- you can use [start-end] to look for characters in a range
+string = 'This is an example sentence. Lets see if we can find some letters'
+search_patters = ['[a-z]+', #sequences of lower case letters
+                  '[A-Z]+', #sequences of upper case letters
+                  '[a-zA-Z]+', #sequences of lower or upper case letters
+                  '[A-Z][a-z]+' #sequences of one upper case followed by lower case letters
+                ]
+multi_re_find(search_patters, string)
+
+#Escape codes- you can use special escape codes to find specific types of patterns
+'''
+    - \d for a digit
+    - \D for a non-digit
+    - \s for whitespace
+    - \S for non-whitespace
+    - \w for alphanumeric
+    - \W for non-alphanumeric
+'''
+test_phrase2 = 'This is a string with some numbers 1233 and a symbol #hashtag'
+# python arleady uses \ as an escape but we can get around that by putting an r in front
+test_patterns3 = [r'\d+', r'\D+', r'\s+', r'\S+', r'\w+', r'\W+']
+multi_re_find(test_patterns3, test_phrase2)
